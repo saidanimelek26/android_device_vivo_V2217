@@ -84,7 +84,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 VENDOR_SECURITY_PATCH := 2021-08-01
 
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
-
+TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -93,11 +93,6 @@ BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
-
-# Debug
-TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
-
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
@@ -110,3 +105,10 @@ TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
+TW_MAX_BRIGHTNESS := 2047
+TW_CUSTOM_BATTERY_PATH := /sys/devices/platform/battery/power_supply/batteryss
+TW_BRIGHTNESS_PATH := /sys/devices/platform/soc/soc:mtk_leds/leds/lcd_backlight/brightness
+
+# Debug
+TARGET_USES_LOGD := true
+TWRP_INCLUDE_LOGCAT := true
